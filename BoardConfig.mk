@@ -19,6 +19,9 @@ TARGET_CPU_VARIANT := cortex-a7
 # Flags
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+ifeq ($(shell test $(PLATFORM_SDK_VERSION) -ge 21 || echo 1),)
+COMMON_GLOBAL_CFLAGS += -Idevice/micromax/a116/include
+endif
 
 # Kernel
 TARGET_PREBUILT_KERNEL := device/micromax/a116/kernel
