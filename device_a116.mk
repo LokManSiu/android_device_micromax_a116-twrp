@@ -17,6 +17,11 @@ PRODUCT_COPY_FILES += \
 
 $(call inherit-product, build/target/product/full.mk)
 
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+PRODUCT_PROPERTY_OVERRIDES := \
+	ro.adb.secure=0 \
+	ro.secure=0 \
+	ro.allow.mock.location=1 \
+	BUILD_UTC_DATE=0
+
 PRODUCT_NAME := full_a116
 PRODUCT_DEVICE := a116
