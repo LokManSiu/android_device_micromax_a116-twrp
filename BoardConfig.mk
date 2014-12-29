@@ -73,3 +73,4 @@ SP2_DISPLAY_NAME := "nvram"
 SP2_BACKUP_METHOD := image
 SP2_MOUNTABLE := 0
 BOARD_CUSTOM_BOOTIMG_MK := device/micromax/a116/bootimg.mk
+TW_EXCLUDE_SUPERSU := true
