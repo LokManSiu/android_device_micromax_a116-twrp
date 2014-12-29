@@ -3,11 +3,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-$(call inherit-product-if-exists, vendor/Micromax/A116/A116-vendor.mk)
+$(call inherit-product-if-exists, vendor/micromax/a116/a116-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/Micromax/A116/overlay
+DEVICE_PACKAGE_OVERLAYS += device/micromax/a116/overlay
 
-LOCAL_PATH := device/Micromax/A116
+LOCAL_PATH := device/micromax/a116
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
 else
@@ -20,5 +20,5 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product, build/target/product/full.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-PRODUCT_NAME := full_A116
-PRODUCT_DEVICE := A116
+PRODUCT_NAME := full_a116
+PRODUCT_DEVICE := a116

@@ -1,12 +1,12 @@
 USE_CAMERA_STUB := true
 
 # inherit from the proprietary version
--include vendor/Micromax/A116/BoardConfigVendor.mk
+-include vendor/micromax/a116/BoardConfigVendor.mk
 
 TARGET_NO_BOOTLOADER := true
 TARGET_BOARD_PLATFORM := mt6589
 TARGET_CPU_ABI := armeabi
-TARGET_BOOTLOADER_BOARD_NAME := A116
+TARGET_BOOTLOADER_BOARD_NAME := a116
 
 BOARD_KERNEL_CMDLINE := 
 BOARD_KERNEL_BASE := 0x10000000
@@ -19,7 +19,7 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x105c0000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x105c0000
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-TARGET_PREBUILT_KERNEL := device/Micromax/A116/kernel
+TARGET_PREBUILT_KERNEL := device/micromax/a116/kernel
 
 BOARD_HAS_NO_SELECT_BUTTON := true
 # Use this flag if the board has a ext4 partition larger than 2gb
@@ -47,4 +47,4 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 DEVICE_RESOLUTION := 720x1280
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 #RECOVERY_SDCARD_ON_DATA := true
-BOARD_CUSTOM_BOOTIMG_MK := device/Micromax/A116/bootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := device/micromax/a116/bootimg.mk
