@@ -1,13 +1,27 @@
-USE_CAMERA_STUB := true
-
 # inherit from the proprietary version
 -include vendor/micromax/a116/BoardConfigVendor.mk
 
+# Bootloader
 TARGET_NO_BOOTLOADER := true
-TARGET_BOARD_PLATFORM := mt6589
-TARGET_CPU_ABI := armeabi
-TARGET_BOOTLOADER_BOARD_NAME := a116
+TARGET_BOOTLOADER_BOARD_NAME := mt6589
 
+# Platform
+TARGET_BOARD_PLATFORM := mt6589
+
+# Architecture
+TARGET_ARCH := arm
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_ABI := armeabi
+TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_SMP := true
+TARGET_CPU_VARIANT := cortex-a7
+
+# Flags
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+
+# Kernel
+TARGET_PREBUILT_KERNEL := device/micromax/a116/kernel
 BOARD_KERNEL_CMDLINE := 
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -19,12 +33,25 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x105c0000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x105c0000
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-TARGET_PREBUILT_KERNEL := device/micromax/a116/kernel
+# USB Mounting
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/gadget/lun%d/file
 
-BOARD_HAS_NO_SELECT_BUTTON := true
+USE_CAMERA_STUB := true
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 720
+
+# Recovery
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
 # Use this flag if the board has a ext4 partition larger than 2gb
 #BOARD_HAS_LARGE_FILESYSTEM := true
 
+# TWRP-Specific
+TARGET_RECOVERY_FSTAB := device/micromax/recovery.fstab
+BOARD_HAS_NO_SELECT_BUTTON := true
+DEVICE_RESOLUTION := 720x1280
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+#RECOVERY_SDCARD_ON_DATA := true
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
 TW_MAX_BRIGHTNESS := 255
@@ -42,9 +69,3 @@ SP2_NAME := "nvram"
 SP2_DISPLAY_NAME := "nvram"
 SP2_BACKUP_METHOD := image
 SP2_MOUNTABLE := 0
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/gadget/lun%d/file
-TARGET_ARCH_VARIANT := armv7-a-neon
-DEVICE_RESOLUTION := 720x1280
-RECOVERY_GRAPHICS_USE_LINELENGTH := true
-#RECOVERY_SDCARD_ON_DATA := true
-BOARD_CUSTOM_BOOTIMG_MK := device/micromax/a116/bootimg.mk

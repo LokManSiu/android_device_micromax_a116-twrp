@@ -5,8 +5,6 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 $(call inherit-product-if-exists, vendor/micromax/a116/a116-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/micromax/a116/overlay
-
 LOCAL_PATH := device/micromax/a116
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
