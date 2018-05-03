@@ -14,6 +14,6 @@
 # limitations under the License.
 #
 
-for i in eng userdebug user; do
-    add_lunch_combo cm_a116-${i}
+for i in eng; do
+    add_lunch_combo omni_HM2013023-${i}
 done

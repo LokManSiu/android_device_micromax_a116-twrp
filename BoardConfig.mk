@@ -1,6 +1,8 @@
 # inherit from the proprietary version
 -include vendor/micromax/a116/BoardConfigVendor.mk
 
+DEVICE_TREE := device/xiaomi/HM2013023
+
 # Bootloader
 TARGET_NO_BOOTLOADER := true
 TARGET_BOOTLOADER_BOARD_NAME := mt6589
@@ -20,11 +22,11 @@ TARGET_CPU_VARIANT := cortex-a7
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 ifeq ($(shell test $(PLATFORM_SDK_VERSION) -ge 21 || echo 1),)
-COMMON_GLOBAL_CFLAGS += -Idevice/micromax/a116/include
+COMMON_GLOBAL_CFLAGS += -I$(DEVICE_TREE)/include
 endif
 
 # Kernel
-TARGET_PREBUILT_KERNEL := device/micromax/a116/kernel
+TARGET_PREBUILT_KERNEL := $(DEVICE_TREE)/prebuilt/kernel
 BOARD_KERNEL_CMDLINE := 
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -50,11 +52,10 @@ TARGET_USERIMAGES_USE_F2FS := true
 #BOARD_HAS_LARGE_FILESYSTEM := true
 
 # TWRP-Specific
-TARGET_RECOVERY_FSTAB := device/micromax/a116/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(DEVICE_TREE)/root/etc/recovery.fstab
 BOARD_HAS_NO_SELECT_BUTTON := true
 DEVICE_RESOLUTION := 720x1280
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
-#RECOVERY_SDCARD_ON_DATA := true
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
 TW_MAX_BRIGHTNESS := 255
@@ -72,5 +73,5 @@ SP2_NAME := "nvram"
 SP2_DISPLAY_NAME := "nvram"
 SP2_BACKUP_METHOD := image
 SP2_MOUNTABLE := 0
-BOARD_CUSTOM_BOOTIMG_MK := device/micromax/a116/bootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_TREE)/bootimg.mk
 TW_EXCLUDE_SUPERSU := true
